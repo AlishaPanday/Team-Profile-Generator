@@ -94,7 +94,7 @@ function userInfo() {
                     console.log(response.officeNum);
                     const MangaerTeam = new Manager (answers.name, answers.id, answers.email, ans.OfficeNum);
                     teamMembers.push(ManagerTeam);
-                    //addmore
+                    addOption();
                 })
             }else if(answers.role === 'Engineer' ){
                 inquirer.prompt([
@@ -115,7 +115,7 @@ function userInfo() {
                     console.log(response.gitHub);
                     const EngineerTeam = new Engineer (answers.name, answers.id, answers.email, response.gitHub);
                     teamMembers.push(EngineerTeam);
-                    //addmore 
+                    addOption();
                 })
             } else if (answers.role === 'Intern'){
                 inquirer.prompt([
@@ -137,14 +137,14 @@ function userInfo() {
                     console.log(response.school);
                     const internTeam = new Intern (answers.name, answers.id, answers.email,response.school);
                     teamMembers.push(interTeam);
-                    //addmore
+                    addOption();
                 })
             }
 
             else {
                 const employeeTeam = new Employee (answers.name, answers.id, answers.email);
                 teamMembers.push(employeeTeam);
-                //addmore
+                addOption();
 
             }
 
