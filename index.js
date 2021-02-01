@@ -19,7 +19,7 @@ const generateHtml = require('./generate-html');
 
 //creating empty array to store user input
 
-const teamMembers = [];
+const teamMembers = []
 
 //prompting userinput 
 
@@ -40,19 +40,6 @@ function userInfo() {
 
         {
             type: 'input',
-            message: 'Enter Employee Id: ',
-            name: 'id',
-            validate: function (idInput) {
-                if (idInput) {
-                    return true;
-                } else {
-                    return 'Please enter Employee Id.';
-                }
-            }
-        },
-
-        {
-            type: 'input',
             message: 'Enter Email: ',
             name: 'email',
             validate: function (emailInput) {
@@ -65,10 +52,25 @@ function userInfo() {
         },
 
         {
+            type: 'input',
+            message: 'Enter Employee Id: ',
+            name: 'id',
+            validate: function (idInput) {
+                if (idInput) {
+                    return true;
+                } else {
+                    return 'Please enter Employee Id.';
+                }
+            }
+        },
+
+
+
+        {
             type: 'list',
             message: 'Select Role: ',
             name: 'role',
-            choices: ["Manager", "Engineer", "Intern"]
+            choices: ["Manager", "Engineer", "Intern", "Employee"]
 
         },
 
@@ -79,10 +81,10 @@ function userInfo() {
                 inquirer.prompt([
                     {
                         type: 'input',
-                        message:'Enter office number',
-                        name: 'officeNum',
-                        validate: function (numInput) {
-                            if (numInput) {
+                        message:'Enter office number:',
+                        name: 'office',
+                        validate: function (officeInput) {
+                            if (officeInput) {
                                 return true;
                             } else {
                                 return 'Please enter office No.';
@@ -92,10 +94,10 @@ function userInfo() {
                     }
                 ])
                 .then(response => {
-                    console.log(response.officeNum);
-                    const MangaerTeam = new Manager (answers.name, answers.id, answers.email, ans.OfficeNum);
+                    console.log(response.office);
+                    const ManagerTeam = new Manager (answers.name, answers.email, answers.id, answers.role, response.office);
                     teamMembers.push(ManagerTeam);
-                    addOption();
+                    addOption()
                 })
             }else if(answers.role === 'Engineer' ){
                 inquirer.prompt([
@@ -107,16 +109,16 @@ function userInfo() {
                             if (githubInput) {
                                 return true;
                             } else {
-                                return 'Please enter gitHub name.';
+                                return 'Please enter gitHub username.';
                             }
                         }
                     }
                 ])
                 .then(response => {
                     console.log(response.gitHub);
-                    const EngineerTeam = new Engineer (answers.name, answers.id, answers.email, response.gitHub);
+                    const EngineerTeam = new Engineer (answers.name, answers.email, answers.id, answers.role, response.gitHub);
                     teamMembers.push(EngineerTeam);
-                    addOption();
+                    addOption()
                 })
             } else if (answers.role === 'Intern'){
                 inquirer.prompt([
@@ -136,16 +138,16 @@ function userInfo() {
                 ])
                 .then(response =>{
                     console.log(response.school);
-                    const internTeam = new Intern (answers.name, answers.id, answers.email,response.school);
-                    teamMembers.push(interTeam);
-                    addOption();
+                    const internTeam = new Intern (answers.name,  answers.email, answers.id, answers.role, response.school);
+                    teamMembers.push(internTeam);
+                    addOption()
                 })
             }
 
             else {
-                const employeeTeam = new Employee (answers.name, answers.id, answers.email);
+                const employeeTeam = new Employee (answers.name,answers.email, answers.id, answers.role,);
                 teamMembers.push(employeeTeam);
-                addOption();
+                addOption()
 
             }
 
@@ -159,8 +161,8 @@ function userInfo() {
                         message:'Would you like to add another Employee?'
                     }
                 ])
-                .then(ans =>{
-                    if(ans.addMore === true){
+                .then(res =>{
+                    if(res.addMore === true){
                         userInfo(teamMembers);
                     }else{
                         let cardLayoutHtml = generateTemplate(teamMembers);

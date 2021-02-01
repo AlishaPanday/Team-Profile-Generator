@@ -9,7 +9,7 @@ function writePage (html) {
             throw err
         }
         console.log("index.html Page generated")
-        copyCss()
+        copyCSS()
     })
 }
 

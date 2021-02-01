@@ -1,7 +1,7 @@
 //html template
 
-let generatehtmlPage = teamObj =>{
-    console.log('team', teamObj)
+let generatehtmlPage = teamObj => {
+    console.log('team object', teamObj)
 
    // set card to empty
     let htmlCard = ""
@@ -9,7 +9,7 @@ let generatehtmlPage = teamObj =>{
     //loop over array of objects
 
     for(let i = 0; i < teamObj.length; i++){
-        let finalPrompt = teamObj[i].officeNum || teamObj[i].gitHub || teamObj[i].school;
+        let finalPrompt = teamObj[i].office || teamObj[i].gitHub || teamObj[i].school;
         let enumerate = Object.keys(teamObj[i]);
         let lastKey = enumerate[4];
         let finalOption = lastKey + ":" + finalPrompt
@@ -17,7 +17,7 @@ let generatehtmlPage = teamObj =>{
         if (lastKey === undefined){
             finalOption = "";
 
-        } else if (lastKey === gitHub){
+        } else if (lastKey === 'gitHub'){
             finalOption = (`GitHub : <a href = 'https://www.github.com/${teamObj[i].gitHub}'> ${teamObj[i].gitHub}</a>`)
         }
 
