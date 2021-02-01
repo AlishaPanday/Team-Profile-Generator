@@ -75,15 +75,15 @@ function userInfo() {
         },
 
     ])
-    .then(function (answers) {
+    .then(answers => {
 
             if (answers.role === 'Manager') {
                 inquirer.prompt([
                     {
                         type: 'input',
-                        message:'Enter office number:',
                         name: 'office',
-                        validate: function (officeInput) {
+                        message:'Enter office number:',
+                        validate: officeInput => {
                             if (officeInput) {
                                 return true;
                             } else {
@@ -95,7 +95,7 @@ function userInfo() {
                 ])
                 .then(response => {
                     console.log(response.office);
-                    const ManagerTeam = new Manager (answers.name, answers.email, answers.id, answers.role, response.office);
+                    const ManagerTeam = new Manager (answers.name, answers.email, answers.id, answers.role, response.office)
                     teamMembers.push(ManagerTeam);
                     addOption()
                 })
@@ -103,9 +103,9 @@ function userInfo() {
                 inquirer.prompt([
                     {
                         type: 'input',
-                        message:'Enter Github name:',
                         name: 'gitHub',
-                        validate: function (githubInput) {
+                        message:'Enter Github name:',
+                        validate: githubInput => {
                             if (githubInput) {
                                 return true;
                             } else {
@@ -116,7 +116,7 @@ function userInfo() {
                 ])
                 .then(response => {
                     console.log(response.gitHub);
-                    const EngineerTeam = new Engineer (answers.name, answers.email, answers.id, answers.role, response.gitHub);
+                    const EngineerTeam = new Engineer (answers.name, answers.email, answers.id, answers.role, response.gitHub)
                     teamMembers.push(EngineerTeam);
                     addOption()
                 })
@@ -124,8 +124,8 @@ function userInfo() {
                 inquirer.prompt([
                     {
                         type: 'input',
-                        message:'Enter School name:',
                         name: 'school',
+                        message:'Enter School name:', 
                         validate: function (schoolInput) {
                             if (schoolInput) {
                                 return true;
@@ -138,14 +138,14 @@ function userInfo() {
                 ])
                 .then(response =>{
                     console.log(response.school);
-                    const internTeam = new Intern (answers.name,  answers.email, answers.id, answers.role, response.school);
+                    const internTeam = new Intern (answers.name,  answers.email, answers.id, answers.role, response.school)
                     teamMembers.push(internTeam);
                     addOption()
                 })
             }
 
             else {
-                const employeeTeam = new Employee (answers.name,answers.email, answers.id, answers.role,);
+                const employeeTeam = new Employee (answers.name, answers.email, answers.id, answers.role);
                 teamMembers.push(employeeTeam);
                 addOption()
 
@@ -165,6 +165,7 @@ function userInfo() {
                     if(res.addMore === true){
                         userInfo(teamMembers);
                     }else{
+                        console.log('team', teamMembers)
                         let cardLayoutHtml = generateTemplate(teamMembers);
                         generateHtml(cardLayoutHtml)
                     }
