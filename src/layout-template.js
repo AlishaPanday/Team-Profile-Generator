@@ -92,3 +92,8 @@ let generatehtmlPage = teamObj => {
 
 module.exports = generatehtmlPage;
 
+
+ //template for html file
+
+
+ 
