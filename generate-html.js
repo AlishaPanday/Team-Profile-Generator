@@ -22,4 +22,4 @@ const copyCSS = () =>{
     });
 }
 
-module.export = writePage, copyCSS
+module.exports = writePage, copyCSS

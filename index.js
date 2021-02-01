@@ -13,6 +13,7 @@ const Manager = require('./lib/Manager');
 //importing layout template file
 const generateTemplate = require('./src/layout-template');
 
+
 //importing generate function 
 const generateHtml = require('./generate-html');
 
