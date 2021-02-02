@@ -25,7 +25,7 @@ describe('Intern', () => {
         keys = Object.keys(internTest )
         optionKey = keys[4]
         expect(optionKey).toBe('school')
-        expect(engineerTest.gitHub).toEqual(expect.any(String))
+        expect(internTest.school).toEqual(expect.any(String))
     })
 })
 

@@ -1,7 +1,7 @@
 const Manager = require ('../lib/Manager');
 
 //name, email, id, role and school  name validation for manager
-const managerTest = new Intern ('Prani', 'prani@gmail.com', 4 , 'Manager', 'office')
+const managerTest = new Manager ('Prani', 'prani@gmail.com', 4 , 'Manager', 109)
 
 describe('Manager', () => {
     it('has a name', () =>{
@@ -21,10 +21,10 @@ describe('Manager', () => {
         expect(managerTest.role).toBe('Manager')
     })
 
-    it('has a school name', () => {
+    it('has a office number', () => {
         keys = Object.keys(managerTest)
         optionKey = keys[4]
         expect(optionKey).toBe('office')
-        expect(engineerTest.office).toEqual(expect.any(Number))
+        expect(managerTest.office).toEqual(expect.any(Number))
     })
 })
