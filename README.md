@@ -4,6 +4,7 @@ Command line application that takes in information about employees on a software
 
 ## Deployment Video Link
 
+<br  />
 
 ## User Story
 ```md
