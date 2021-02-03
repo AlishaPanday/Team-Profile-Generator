@@ -4,6 +4,7 @@ Command line application that takes in information about employees on a software
 
 ## Deployment Video Link
 
+https://drive.google.com/file/d/1ZvTKRYdZDbKeyarcrwfQSDDwgjt20opg/view
 <br  />
 
 ## User Story
@@ -34,6 +35,12 @@ THEN I exit the application, and the HTML is generated
 ```
 
 ## Mock up
+
+![node](https://user-images.githubusercontent.com/72904217/106688862-e5bc6500-6609-11eb-8613-8c8a65040f64.PNG)
+<br  />
+![test](https://user-images.githubusercontent.com/72904217/106688870-e8b75580-6609-11eb-9d60-9cea7ce00b20.PNG)
+<br  />
+![My Team](https://user-images.githubusercontent.com/72904217/106688877-ec4adc80-6609-11eb-90f8-8755a4964614.PNG)
 
 ## Questions
 
