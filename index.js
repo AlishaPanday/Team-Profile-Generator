@@ -70,7 +70,7 @@ function userInfo() {
             type: 'list',
             message: 'Select Role: ',
             name: 'role',
-            choices: ["Manager", "Engineer", "Intern", "Employee"]
+            choices: ["Manager", "Engineer", "Intern"]
 
         },
 

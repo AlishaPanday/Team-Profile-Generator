@@ -27,6 +27,14 @@ body{
     background: rgb(51,153,255)
 }
 
+.card-title {
+    color:white;
+}
+
+.text-muted {
+    color:white;
+}
+
 .list-group{
     margin: 10px;
     border: solid 2px rgba(128, 128, 128, 0.205);
